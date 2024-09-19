@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .scan-summary {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-new-scan {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scan-summary">
+            <h2>Scan Results for {{ url }}</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Drupal Core Version:</strong> {{ core_version }}</li>
+                <li class="list-group-item"><strong>Theme Vulnerabilities:</strong> {{ theme_vulns }}</li>
+                <li class="list-group-item"><strong>Module Vulnerabilities:</strong> {{ module_vulns }}</li>
+                <li class="list-group-item"><strong>Security Headers:</strong> {{ security_headers }}</li>
+                <li class="list-group-item"><strong>Outdated Libraries:</strong> {{ outdated_libs }}</li>
+                <li class="list-group-item"><strong>User Enumeration:</strong> {{ user_enum }}</li>
+                <li class="list-group-item"><strong>Configuration Issues:</strong> {{ config_issues }}</li>
+            </ul>
+            <a href="/new_scan" class="btn btn-new-scan mt-4">Start a New Scan</a>
+        </div>
+    </div>
+</body>
+</html>
