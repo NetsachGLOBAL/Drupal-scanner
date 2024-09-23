@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Vulnerability Scanner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Drupal Vulnerability Scanner</h1>
+        <form method="POST">
+            <label for="url">Enter Website URL:</label>
+            <input type="text" id="url" name="url" placeholder="http://example.com" required>
+            <button type="submit">Scan</button>
+        </form>
+
+        {% if results %}
+        <h2>Scan Results for {{ url }}</h2>
+        <div class="results">
+            <p><strong>Core Version:</strong> {{ results['core_version'] }}</p>
+            <p><strong>Theme Vulnerabilities:</strong> {{ results['theme_vulns'] }}</p>
+            <p><strong>Module Vulnerabilities:</strong> {{ results['module_vulns'] }}</p>
+            <p><strong>Security Headers:</strong> {{ results['security_headers'] }}</p>
+            <p><strong>Outdated Libraries:</strong> {{ results['outdated_libs'] }}</p>
+            <p><strong>User Enumeration:</strong> {{ results['user_enum'] }}</p>
+            <p><strong>Configuration Issues:</strong> {{ results['config_issues'] }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
